@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <title>Document</title>
+
+</head>
+<body>
+    <div class="col cart-row">
+        <div class="card shadow-sm bg-light mb-2">
+            <img class="img-fluid productImg" id="productImg" alt="">
+            <div class="card-body text-center">
+                <h6 class="cart-item-title">Produkt 8</h6>
+            </div>
+            <div class="card-footer">
+                <p class="float-start cart-price">69.99€</p>
+                <button class="btn btn-outline-danger btn-sm float-end">Vymazať</button>
+                <input type="number" value="6" class="float-end cart-quantity-input">
+            </div>
+        </div>
+    </div>
+    <label id="label"></label>
+
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.6/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.6.6/firebase-analytics.js";
+        import { getStorage, ref, getDownloadURL, listAll, getMetadata  } from "https://www.gstatic.com/firebasejs/9.6.6/firebase-storage.js";
+        // TODOs: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        const firebaseConfig = {
+            apiKey: "AIzaSyCI5SdwdXMQeu3y7AQPZnkcZH_GmIcSgKw",
+            authDomain: "login-9a8b6.firebaseapp.com",
+            databaseURL: "https://login-9a8b6-default-rtdb.europe-west1.firebasedatabase.app",
+            projectId: "login-9a8b6",
+            storageBucket: "login-9a8b6.appspot.com",
+            messagingSenderId: "663312681266",
+            appId: "1:663312681266:web:aaff10c5e0a58994ceaf2b",
+            measurementId: "G-XTC30ZEDBX"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+        const storage = getStorage();
+
+        // getDownloadURL(ref(storage, 'Images/luca-zanon-26595-unsplash.jpg'))
+        // .then((url) => {
+        //     // `url` is the download URL for 'images/stars.jpg'
+
+            //not needed
+        //     // This can be downloaded directly:
+        //     // const xhr = new XMLHttpRequest();
+        //     // xhr.responseType = 'blob';
+        //     // xhr.onload = (event) => {
+        //     // const blob = xhr.response;
+        //     // };
+        //     // xhr.open('GET', url);
+        //     // xhr.send();
+            //end of not needed
+        //     // Or inserted into an <img> element
+        //     const img = document.getElementsByClassName('productImg');
+        //     img[0].setAttribute('src', url);
+        // })
+        // .catch((error) => {
+        //     // Handle any errors
+        // });
+        const listRef = ref(storage, 'Images');
+
+        // Find all the prefixes and items.
+        // listAll(listRef)
+        // .then((res) => {
+        //     res.prefixes.forEach((folderRef) => {
+        //     // All the prefixes under listRef.
+        //     // You may call listAll() recursively on them.
+        //     });
+        //     TODOs: //get name of the item and then pass it into the download url by addding + name
+        //     // this way you can only add items thought website
+        //     res.items.forEach((itemRef) => {
+        //         // All the items under listRef.
+        //         // console.log(itemRef)
+        //         getMetadata(listRef)
+        //             .then((metadata) => {
+        //                 console.log(metadata.timeCreated)
+        //                 for(var i = 0;i<img.length;i++) {
+
+        //                     const img = document.getElementsByClassName('productImg');
+        //                     img[i].setAttribute('src', metadata.fullPath);
+        //                     var label = document.getElementById('label');
+        //                     label.innerHTML = "metadata.fullPath";
+
+        //                 }
+        //             })
+
+        //             .catch((error) => {
+        //                 // Uh-oh, an error occurred!
+        //             });
+
+
+
+        //     });
+        // }).catch((error) => {
+        //     console.log(error);
+        // });
+
+
+
+
+
+        var myimg = document.getElementById("myimg");
+        var downimg = document.getElementById("downimg");
+    async function getImageFromFirestore(){
+            var name = imgname.value;
+
+            var ref = doc(clouddb, "ImageLinks/luca-zanon-26595-unsplash");
+            const docSnap = await getDoc(ref);
+
+            if(docSnap.exists()){
+                myimg.src = docSnap.data().ImageURL;
+            }
+        }
+
+        downimg.onclick = getImageFromFirestore;
+
+
+    </script>
+</body>
+</html>
