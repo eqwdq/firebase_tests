@@ -1,0 +1,90 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.imageDivStyle {
+    width: 610px;
+    border: 1px gray solid;
+    padding: 5px;
+}
+
+.imgs {
+    height:  80px;
+    width: 100px;
+    border: 1px black dashed;
+    margin: 5px;
+}
+
+label {
+    display: inline-block;
+    width: 120px;
+}
+
+input, textarea, select {
+    width: 600px;
+    border: gray 1px solid;
+    resize: none;
+    padding: 8px;
+}
+
+select {
+    width: 610px;
+}
+
+textarea {
+    height: 100px;
+}
+
+.pointers {
+    border: 1px blueviolet dashed;
+}
+
+#pdlab {
+    height: 100px;
+    vertical-align: top;
+}
+
+#addprodbtn, #selimgsbtn {
+    float: right;
+    margin-left: 10px;
+}
+
+#controldiv {
+    width: 740px;
+}
+#loadlab {
+    width: 200px;
+}
+
+.productCard {
+    border: 1px whitesmoke solid;
+    height: 510px;
+    width: 290px;
+    margin: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    transition: border-color .3s ;
+}
+
+.productCard:hover {
+    border-color: darkblue;
+}
+
+.thumb {
+    width: 220px;
+    height: 160px;
+    cursor: pointer;
+    margin-bottom: 15px;
+}
+
+.detbtn {
+    color: whitesmoke;
+}
+
+.title {
+    color: darkblue;
+    font-weight: bold;
+    cursor: pointer;
+}
