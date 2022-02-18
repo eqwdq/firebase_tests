@@ -2,6 +2,11 @@ body {
     font-family: Arial, Helvetica, sans-serif;
 }
 
+#productsDiv{
+    display: flex;
+    flex-wrap: wrap;
+}
+
 .imageDivStyle {
     width: 610px;
     border: 1px gray solid;
@@ -87,4 +92,55 @@ textarea {
     color: darkblue;
     font-weight: bold;
     cursor: pointer;
+    padding-left: 5px;
+    padding-right: 5px;
+    width: 100%;
+    text-align: center;
+}
+
+#contentDiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#imgDiv, #detailsDiv {
+    height: 500px
+}
+
+#bigimg {
+    width: 550px;
+    min-height: 300px;
+    max-height: 400px;
+}
+
+.smimgs{
+    height: 80px;
+    width: 100px;
+    border: 1px gray solid;
+}
+
+.breadcrumb {
+    background-color: transparent;
+    border: 1px lightgray solid;
+    font-size: 12px;
+    color: whitesmoke;
+    margin-top: 10px;
+}
+
+.breadcrumb-item, .breadcrumb-item a {
+    color: darkslategray !important;
+    font-weight: bold;
+}
+
+.active{
+    color: black;
+    font-weight: normal;
+}
+
+#detailsDiv {
+    width: 300px;
+}
+#title, #description{
+    word-wrap: break-word;
 }

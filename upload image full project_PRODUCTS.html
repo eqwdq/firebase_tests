@@ -27,5 +27,14 @@
             <button class="detbtn btn" id="detbtn">View details</button>
         </div>
     </div>
+
+    <script>
+        function getShortTitle(){
+            if(title.lenght > 49) title = title.substring(0,47);
+            else return title;
+            return title + "..."
+        }
+    </script>
+
 </body>
 </html>
