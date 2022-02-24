@@ -16,11 +16,10 @@
     <label>Stock quantity</label> <input type="number" id="stockinp"> <br> <br>
     <label > Category</label>
     <select id="catinp">
-        <option value="Keyboard & Mouse">Keyboard & Mouse</option>
-        <option value="Laptops">Laptops</option>
-        <option value="Monitors">Monitors</option>
-        <option value="Graphics Card">Graphics Card</option>
-        <option value="Power Supply">Power Supply</option>
+        <option value="Pre muzov">Pre muzov</option>
+        <option value="Pre zeny">Pre zeny</option>
+        <option value="pre deti">Pre deti</option>
+        <option value="Unisex">Unisex</option>
     </select> <br> <br>
     <label>Points #1</label> <input type="text" id="p1inp" class=".pointers"> <br> <br>
     <label>Points #2</label> <input type="text" id="p2inp" class=".pointers"> <br> <br>
@@ -28,7 +27,7 @@
     <label>Points #4</label> <input type="text" id="p4inp" class=".pointers"> <br> <br>
 
     <label id="pdlab"> Product Description</label> <textarea id="desarea"></textarea> <br> <br>
-
+    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Placeat, accusamus.
     <div id="imagesDiv"></div>
 
     <div id="controldiv">
@@ -99,7 +98,7 @@
                 }
 
                 if(files[i]) {
-                FileReaders[i].readAsDataURL(files[i]);
+                    FileReaders[i].readAsDataURL(files[i]);
                 }
 
             }
@@ -160,7 +159,7 @@
 
 
 
-        // var imgToUpload = ImageLinksArray[0];
+
         function uploadImage(imgToUpload, imgNo) {
             const metadata = {
                 contentType: imgToUpload.type,
@@ -168,7 +167,7 @@
 
             const storage = getStorage();
 
-            const imageAddress = "Images/" + getTitle() + "/imghash" + (imgNo+1);
+            const imageAddress = "ImagesRealtime/" + getTitle() + "/img#" + (imgNo+1);
             const storageRef = sRef(storage, imageAddress);
             const UploadTask = uploadBytesResumable(storageRef, imgToUpload,metadata);
             UploadTask.on('state_changed',(snapshot) => {
@@ -220,14 +219,14 @@
         const db = getFirestore();
 
         function uploadProduct() {
-            set(ref(realdb, "test" + getTitle()),{
+            set(ref(realdb, "ProductRealdb/" + getTitle()),{
                 ProductTitle: name.value,
                 Category: category.value,
                 Description: description.value,
                 Price: price.value,
                 Stock: stock.value,
                 Points: getPoints(),
-                ImageLinksArray: ImageLinksArray
+                linksOfImagesArray: ImageLinksArray
             });
 
             alert("upload succesful");

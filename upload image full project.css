@@ -13,11 +13,6 @@ body {
     flex-wrap: wrap;
 }
 
-.imageDivStyle {
-    width: 610px;
-    border: 1px gray solid;
-    padding: 5px;
-}
 
 .img {
     height:  80px;

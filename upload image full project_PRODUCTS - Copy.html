@@ -12,7 +12,7 @@
 
 </head>
 <body>
-    <div id="productsDiv" class="container">
+    <div id="productsDiv" >
 
     </div>
 
@@ -73,17 +73,23 @@
 
     function addProduct(product, index) {
         let html =
+
         `
-        <img src="`+ product.linksOfImagesArray +`" class="thumb mt-2" id="thumb-`+ index +`">
-        <p class="title" id="title-`+ index +`">`+ getShortTitle(product.ProductTitle) +`</p>
-        `+
-        getUl(product.Points)
-        +
-        GenerateStockLabel(product.Stock)
-        +
-        `
-        <h5 class="price">`+ product.Price +` €</h5>
-        <button class="detbtn btn" id="detbtn-`+ index +`">View details</button>
+        <div class="row">
+            <div class="col-12 col-sm-6 col-xl-2 col-md-4 col-lg-3">
+                <div class="card shadow-sm bg-light mb-2">
+                    <img src="`+ product.linksOfImagesArray +`" class="img-fluid shop-item-image thumb" id="thumb-`+ index +` alt="">
+                    <div class="card-body text-center">
+                        <h6 class="shop-item-title title" id="title-`+ index +`">`+ getShortTitle(product.ProductTitle) +`</h6>
+                        <p class="card-text" id="card-text">`+ GenerateStockLabel(product.Stock) +`</p>
+                    </div>
+                    <div class="card-footer shop-item-details">
+                        <p class="float-start top shop-item-price" id="shop-item-price">`+ product.Price +` €</p>
+                        <button class="btn btn-outline-dark float-end shop-item-button">Do košíka</button>
+                    </div>
+                </div>
+            </div>
+        </div>
         `
 
         let newProd = document.createElement('div');
@@ -134,7 +140,7 @@
     function goToProductDetails(event) {
         var index = getProductIndex(event.target.id);
         localStorage.product = JSON.stringify(arrayOfProducts[index]);
-        window.location = "upload image full project_DETAIL.html"; // redirects to details page
+        window.location = "upload image full project_DETAIL - Copy.html"; // redirects to details page
     }
 
     function assingAllEvent() {
